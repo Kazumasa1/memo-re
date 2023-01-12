@@ -1,50 +1,41 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {createRouter, createWebHistory} from "vue-router";
 
 export default createRouter({
     history: createWebHistory(),
     routes: [
         {
             path: "/",
-            component: () => import("../views/user/loginView.vue"),
+            component: () => import("../views/user/signInView.vue"),
             name: "login"
         },
-
         {
-            path: "/status",
-            component: () => import("../component/brain/statusMain.vue"),
-            name: "status"
+            path: "/login",
+            component: () => import("../views/user/signInView.vue"),
+            name: "login"
         },
-        {
-            path: "/shareImage",
-            component: () => import("../component/user/shareImage.vue"),
-            name: "shareImage"
-        },
-
         {
             path: "/signUp",
-            component: () => import("../views/user/signUpView.vue"),
+            component: () => import("../views/user/signInView.vue"),
             name: "signUp"
         },
         {
             path: "/mypage",
-            component: () => import("../views/user/mypageView.vue"),
+            component: () => import("../views/brain/listView.vue"),
             name: "mypage"
         },
         {
-            path: "/brain",
+            //
+            path: "/brain/:UserId",
             component: () => import("../views/brain/listView.vue"),
             name: "brain list"
         },
         {
-            path: "/brain/status",
+            //ノート詳細
+            path: "/note/:UserId/:NoteId",
             component: () => import("../views/brain/statusView.vue"),
             name: "brain status"
         },
-        {
-            path: "/select",
-            component: () => import("../views/brain/selectView.vue"),
-            name: "brain select"
-        },
+
         {
             path: "/create",
             component: () => import("../views/brain/createView.vue"),
